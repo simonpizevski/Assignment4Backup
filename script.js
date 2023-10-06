@@ -34,6 +34,7 @@ button.addEventListener("click", function () {
   //create a span-element in out new li and add text
   const itemLabel = document.createElement("span");
   itemLabel.innerText = text;
+  itemLabel.setAttribute("class", "itemLabel");
   item.appendChild(itemLabel);
 
   //create  a span-element that has a trashcan
@@ -43,7 +44,6 @@ button.addEventListener("click", function () {
   item.appendChild(trashcan);
   console.log(todoArray);
 
-  //add a listener to the span(li element)
   itemLabel.addEventListener("click", function () {
     //toggle completed/uncompleted
     if (item.getAttribute("class") == "completed") {
@@ -52,12 +52,11 @@ button.addEventListener("click", function () {
     } else {
       item.setAttribute("class", "completed");
       completedCount++;
-      completedInfo.innerText = `${completedCount} completed`;
       console.log(todoArray);
     }
+    completedInfo.innerText = `${completedCount} completed`;
   });
 
-  //add a listener to the trashcan
   trashcan.addEventListener("click", function () {
     if (item.getAttribute("class") == "completed") {
       completedCount--;
@@ -70,6 +69,7 @@ button.addEventListener("click", function () {
     todoArray.splice(indexToRemove, 1);
 
     console.log(todoArray);
+
     //remove li-element
     item.remove();
   });
@@ -77,4 +77,3 @@ button.addEventListener("click", function () {
   //set empty input field after adding to list
   input.value = "";
 });
-
