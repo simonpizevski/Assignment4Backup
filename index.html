@@ -1,0 +1,54 @@
+<!--
+Inlämningsuppgift
+
+Skapa en webbapplikation för ToDo som innehåller HTML, CSS och JavaScript.
+
+Skriva in en uppgift i ett <input>-fält - Done 
+Klicka på en knapp för att lägga till uppgiften i en lista som en <li> - Done
+Om man klickar på knappen när fältet är tomt ska man få ett meddelande
+som säger att man måste skriva något. - Done
+Klicka på en uppgift <li> i listan för att markera den som klar (sätta class så
+att den stylas annorlunda) Uppdatera en liten etikett någonstans med antal
+uppgifter som man gjort klart. - Done
+
+Uppgifterna som syns i HTML ska även lagras/hanteras i en array med objekt i
+JavaScript.
+
+Uppgiften ska redovisas som en länk till ett repo på GitHub.
+
+För G ska samtliga ovan punkter uppfyllas med en fungerande webbapplikation.
+
+För VG ska förutom G-kraven följande uppfyllas:
+
+Klicka på en <li> som markerats som färdig igen för att markera den som ofärdig
+(kräver conditionals) Klicka på en liten papperskorg på varje rad för att radera
+den uppgiften ur listan
+
+Webbapplikationen ska publiceras på GitHub pages.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo Uppgift 4</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class = "main">
+      <h1>Simon's todo list</h1>
+      <p id="completedCount">0 completed</p>
+
+      <label for="todoInput">Enter a task</label>
+      <input type="text" id="todoInput" name="todo" />
+      <button id="btnAddTodo">Add task</button>
+
+      <ul></ul>
+
+      <small></small>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
