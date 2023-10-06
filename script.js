@@ -41,6 +41,7 @@ button.addEventListener("click", function () {
   trashcan.innerHTML = "&#x1F5D1";
   trashcan.setAttribute("class", "trashcan");
   item.appendChild(trashcan);
+  console.log(todoArray);
 
   //add a listener to the span(li element)
   itemLabel.addEventListener("click", function () {
@@ -52,7 +53,7 @@ button.addEventListener("click", function () {
       item.setAttribute("class", "completed");
       completedCount++;
       completedInfo.innerText = `${completedCount} completed`;
-
+      console.log(todoArray);
     }
   });
 
@@ -63,6 +64,12 @@ button.addEventListener("click", function () {
     }
 
     completedInfo.innerText = `${completedCount} completed`;
+
+    let removeFromArray = item;
+    let indexToRemove = todoArray.indexOf(removeFromArray);
+    todoArray.splice(indexToRemove, 1);
+
+    console.log(todoArray);
     //remove li-element
     item.remove();
   });
@@ -70,9 +77,4 @@ button.addEventListener("click", function () {
   //set empty input field after adding to list
   input.value = "";
 });
-
-
-//function addTodo
-
-//function deleteTodo
 
