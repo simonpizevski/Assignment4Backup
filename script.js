@@ -23,34 +23,33 @@ button.addEventListener("click", function () {
     info.innerText = "";
   }
 
-  //add todo to todoArray
-  //const todoObject = {name: text, status: false};
+  //add task to todoArray
   todoArray.push(text);
 
   //create li-element in ul
-  const item = document.createElement("li");
+  const task = document.createElement("li");
   list.appendChild(item);
 
   //create a span-element in out new li and add text
   const itemLabel = document.createElement("span");
   itemLabel.innerText = text;
   itemLabel.setAttribute("class", "itemLabel");
-  item.appendChild(itemLabel);
+  task.appendChild(itemLabel);
 
   //create  a span-element that has a trashcan
   const trashcan = document.createElement("span");
   trashcan.innerHTML = "&#x1F5D1";
   trashcan.setAttribute("class", "trashcan");
-  item.appendChild(trashcan);
+  task.appendChild(trashcan);
   console.log(todoArray);
 
   itemLabel.addEventListener("click", function () {
     //toggle completed/uncompleted
-    if (item.getAttribute("class") == "completed") {
-      item.setAttribute("class", "");
+    if (task.getAttribute("class") == "completed") {
+      task.setAttribute("class", "");
       completedCount--;
     } else {
-      item.setAttribute("class", "completed");
+      task.setAttribute("class", "completed");
       completedCount++;
       console.log(todoArray);
     }
@@ -58,7 +57,7 @@ button.addEventListener("click", function () {
   });
 
   trashcan.addEventListener("click", function () {
-    if (item.getAttribute("class") == "completed") {
+    if (task.getAttribute("class") == "completed") {
       completedCount--;
     }
 
