@@ -1,18 +1,14 @@
-.main {
-  max-width: 400px;
+.container-1 {
+  width: 400px;
   margin: auto;
   font-family: "Courier New", Courier, monospace;
-}
-
-body {
-  background-color: white;
 }
 
 h1 {
   color: blue;
 }
 
-#btnAddTodo {
+#button-add {
   color: red;
 }
 

@@ -3,11 +3,11 @@ let completedCount = 0;
 const todoArray = [];
 
 //HTML element variables
-const input = document.querySelector("#todoInput");
+const input = document.querySelector("#input-todo");
 const list = document.querySelector("ul");
-const button = document.querySelector("#btnAddTodo");
+const button = document.querySelector("#button-add");
 const info = document.querySelector("small");
-const completedInfo = document.querySelector("#completedCount");
+const completedInfo = document.querySelector("#count-completed");
 
 //function to handle change status on object in array
 //takes parameter completed(boolean)
@@ -28,7 +28,7 @@ button.addEventListener("click", function () {
 
   //create li-element in ul
   const task = document.createElement("li");
-  list.appendChild(item);
+  list.appendChild(task);
 
   //create a span-element in out new li and add text
   const itemLabel = document.createElement("span");
@@ -41,7 +41,6 @@ button.addEventListener("click", function () {
   trashcan.innerHTML = "&#x1F5D1";
   trashcan.setAttribute("class", "trashcan");
   task.appendChild(trashcan);
-  console.log(todoArray);
 
   itemLabel.addEventListener("click", function () {
     //toggle completed/uncompleted
@@ -60,17 +59,16 @@ button.addEventListener("click", function () {
     if (task.getAttribute("class") == "completed") {
       completedCount--;
     }
+    
 
-    completedInfo.innerText = `${completedCount} completed`;
-
-    let removeFromArray = item;
+    let removeFromArray = task;
     let indexToRemove = todoArray.indexOf(removeFromArray);
     todoArray.splice(indexToRemove, 1);
 
-    console.log(todoArray);
-
     //remove li-element
-    item.remove();
+    task.remove();
+
+    completedInfo.innerText = `${completedCount} completed`;
   });
 
   //set empty input field after adding to list
