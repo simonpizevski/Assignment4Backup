@@ -34,6 +34,7 @@ button.addEventListener("click", function () {
   const itemLabel = document.createElement("span");
   itemLabel.innerText = text;
   itemLabel.setAttribute("class", "itemLabel");
+  task.setAttribute("class", "added")
   task.appendChild(itemLabel);
 
   //create  a span-element that has a trashcan

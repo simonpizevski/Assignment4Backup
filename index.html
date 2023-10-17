@@ -12,16 +12,20 @@
   </head>
   <body>
     <div class="container-1">
-      <h1>Simon's todo list</h1>
+      <h1 id="title-todo">My ToDo</h1>
       <p id="count-completed">0 completed</p>
+      <div class="input-field">
+        <input type="text" id="input-todo" name="todo" />
+        <button id="button-add">OK</button>
+      </div>
 
-      <label for="label-todo">Enter a task</label>
-      <input type="text" id="input-todo" name="todo" />
-      <button id="button-add">Add task</button>
+      <small id="input-alert"></small>
 
-      <ul></ul>
+      <ul>
+        <li></li>
+      </ul>
 
-      <small></small>
+      
     </div>
 
     <script src="script.js"></script>
