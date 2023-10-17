@@ -18,9 +18,12 @@ button.addEventListener("click", function () {
   //check that text is not empty
   if (text.length == 0) {
     info.innerText = "Input must not be empty";
+    info.setAttribute("class", "errorBlink")
+    setTimeout(() => {info.classList.remove("errorBlink")}, 1200)
     return;
   } else {
     info.innerText = "";
+    info.removeAttribute("class", "errorBlink")
   }
 
   //add task to todoArray
