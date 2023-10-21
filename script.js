@@ -9,8 +9,7 @@ const button = document.querySelector("#button-add");
 const info = document.querySelector("small");
 const completedInfo = document.querySelector("#count-completed");
 
-//function to handle change status on object in array
-//takes parameter completed(boolean)
+//function to handle change stasktus on object in array
 button.addEventListener("click", function () {
   //get value from input
   const text = input.value;
@@ -18,35 +17,38 @@ button.addEventListener("click", function () {
   //check that text is not empty
   if (text.length == 0) {
     info.innerText = "Input must not be empty";
-    info.setAttribute("class", "errorBlink")
-    setTimeout(() => {info.classList.remove("errorBlink")}, 1200)
+    info.setAttribute("class", "errorBlink");
+    setTimeout(() => {
+      info.classList.remove("errorBlink");
+    }, 1200);
     return;
   } else {
     info.innerText = "";
-    info.removeAttribute("class", "errorBlink")
+    info.removeAttribute("class", "errorBlink");
   }
 
-  //add task to todoArray
+  //add item to todoArray
   todoArray.push(text);
 
   //create li-element in ul
-  const task = document.createElement("li");
-  list.appendChild(task);
+  const item = document.createElement("li");
+  list.appendChild(item);
 
-  //create a span-element in out new li and add text
-  const itemLabel = document.createElement("span");
-  itemLabel.innerText = text;
-  itemLabel.setAttribute("class", "itemLabel");
-  task.setAttribute("class", "added")
-  task.appendChild(itemLabel);
+  //create a p-element for the task
+  const task = document.createElement("p");
+  task.innerText = text;
+  task.setAttribute("class", "task");
+  item.setAttribute("class", "added");
+  item.appendChild(task);
 
   //create  a span-element that has a trashcan
   const trashcan = document.createElement("span");
   trashcan.innerHTML = "&#x1F5D1";
   trashcan.setAttribute("class", "trashcan");
-  task.appendChild(trashcan);
+  item.appendChild(trashcan);
 
-  itemLabel.addEventListener("click", function () {
+  task.addEventListener("click", function () {
+
     //toggle completed/uncompleted
     if (task.getAttribute("class") == "completed") {
       task.setAttribute("class", "");
@@ -63,14 +65,13 @@ button.addEventListener("click", function () {
     if (task.getAttribute("class") == "completed") {
       completedCount--;
     }
-    
 
-    let removeFromArray = task;
+    let removeFromArray = item;
     let indexToRemove = todoArray.indexOf(removeFromArray);
     todoArray.splice(indexToRemove, 1);
 
     //remove li-element
-    task.remove();
+    item.remove();
 
     completedInfo.innerText = `${completedCount} completed`;
   });
